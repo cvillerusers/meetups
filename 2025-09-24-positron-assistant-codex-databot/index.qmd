@@ -1,0 +1,151 @@
+---
+title: "CRU meetup: Positron Assistant, Codex, and Databot"
+author: "[Stephen Turner](https://stephenturner.us)"
+date: 2025-09-24
+format: html
+---
+
+# Positron
+
+1. Install Positron: <https://positron.posit.co/>.
+2. Install Quarto: <https://quarto.org/docs/get-started/>.
+3. (Optional) Install Air: <https://posit-dev.github.io/air/>
+
+If you're using Air, follow the [setup instructions in the Air documentation](https://posit-dev.github.io/air/editor-vscode.html#quarto) to format R code in scripts and Quarto documents on save by adding this to your `settings.json` (`Cmd+Shift+P` on MacOS, then search for `Preferences: Open User Settings (JSON)` to modify global user settings.)
+
+```json
+{
+    "[r]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "Posit.air-vscode"
+    },
+    "[quarto]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "quarto.quarto"
+    }
+}
+```
+
+Also optional, I use RStudio's default keybindings. Open up your `settings.json` again and add:
+
+```json
+"workbench.keybindings.rstudioKeybindings": true
+```
+
+# Positron Assistant and OpenAI Codex
+
+## Install
+
+### Positron Assistant
+
+- Official docs: <https://positron.posit.co/assistant.html>
+- My blog post: <https://blog.stephenturner.us/p/positron-assistant-copilot-chat-agent>
+
+1. Opt in to the `positron.assistant.enable` setting to enable Positron Assistant.
+2. Restart Positron or run the `Developer: Reload Window` command in the Command Palette.
+3. Buy some credits: <https://console.anthropic.com/settings/billing>
+4. Get your API key: <https://console.anthropic.com/settings/keys>
+5. Click on the chat robot icon in the sidebar, or run the Chat: Open Chat in Sidebar command in the Command Palette to open the chat.
+
+### Codex
+
+- Official docs: <https://developers.openai.com/codex/ide>
+- Blog post: <https://blog.stephenturner.us/p/codex-positron>
+- Install: <https://open-vsx.org/extension/openai/chatgpt>
+
+## Live demo
+
+Put some demos here. (**Note: commit to version control first!**).
+
+### Data analysis challenge (Positron Assistant)
+
+In edit mode:
+
+> Help me create a visualization showing the relationship between flipper length and body mass for different penguin species, and explain any interesting patterns you see.
+
+### Code generation and explanation
+
+> Create a function that takes a dataframe and returns summary statistics (mean, median, standard deviation) for all numeric columns, grouped by a categorical variable of my choice." 
+
+Then ask how the code works and suggest improvements.
+
+### Debugging exercise (Codex)
+
+> This code isn't working as expected. Can you help me identify and fix the issues?
+
+```{r}
+#| eval: false
+data <- c(1, 2, 3, "four", 5)
+mean_value <- mean(data)
+result <- mean_value * 2
+```
+
+### Refactor (Codex)
+
+> Can you help me refactor this code to follow tidyverse best practices and make it more readable?
+
+```{r}
+#| eval: false
+df <- mtcars
+result <- df[df$mpg > 20 & df$cyl == 4, ]
+result$efficiency <- ifelse(result$mpg > 25, "high", "normal")
+print(head(result))
+```
+
+# Databot
+
+## Setup
+
+First, read:
+
+1. Get started with Databot: <https://posit.co/blog/introducing-databot/>
+2. Databot is not a floatation device! <https://posit.co/blog/databot-is-not-a-flotation-device/>
+
+Databot is an experimental research preview and is not ready for production use. To enable Databot, you must first acknowledge this.
+
+1. Open the extension pane and search for "databot" or install from <https://open-vsx.org/extension/posit/databot>.
+1. In Positron, open the Command Palette (Cmd-Shift-P or Ctrl-Shift-P) and run Open User Settings.
+1. In the search bar, type “Databot”.
+1. You will see Databot: Research Preview Acknowledgment. In the text box, type "Acknowledged".
+
+## Live demo
+
+Command pallette command: Open Databot. 
+
+Run this prompt:
+
+> Look in the kgp folder for data
+
+## What Databot is
+
+From the docs at <https://posit.co/blog/introducing-databot/>:
+
+> **What is exploratory data analysis?**
+> 
+> Exploratory data analysis (EDA) is the initial process of understanding a new dataset. You can think of it as asking and answering a series of questions, like:
+> 
+> - **What's the structure of the data?** What tables exist? What columns and data types do they have?
+> - **Are there quality issues in the data?** Are there missing values? Do the distributions and ranges seem reasonable?
+> - **What relationships or patterns show up in the data?** Is there a surprising correlation between variables—or perhaps a surprising lack of correlation? Are there unexpected clusters?
+> - **What questions could we ask of this data?** What hypotheses might be testable?
+> 
+> EDA lays the foundation for any data project. It's how you form an initial understanding of the data. Through summarization and visualization, EDA helps reveal the structure, distributions, relationships, and anomalies that guide every downstream decision. Without it, we risk building models or conducting hypothesis tests on flawed assumptions—overlooking issues like outliers, missing data, unexpected correlations, or misaligned units of analysis.
+> 
+> This process of exploration often generates valuable insights in and of itself—patterns in subject behavior, shifts in operational metrics, or seasonal trends that weren't previously understood. 
+> 
+> **How Databot works**
+> 
+> Unlike many data-oriented AI agents today, Databot is not intended to investigate and answer data questions by working as autonomously as possible. Nor is it constrained to a web-based sandbox where the user is unable to effectively write their own code.
+> 
+> Instead, using Databot is a highly interactive experience. It's a lot like pair programming with a data scientist who types incredibly quickly, never gets bored, and constantly has ideas for what to do next, but who still waits for your direction before proceeding.
+> 
+> At the core of the Databot experience is a loop, kicked off when the user presents Databot with a question or an instruction. This can be as broad as, “Are there any obvious data quality issues with this dataset?” or as specific as, “Set the x-axis minor ticks to 5-year increments.”
+> 
+> Databot then responds by carrying out the following steps (called the **WEAR loop**):
+> 
+> 1. **Write code** – Databot writes Python or R code to answer the question or carry out the task. This code is displayed to the user.
+> 1. **Execute** – The code is automatically executed in the current R or Python session. The output (including console output, plots, and tables) is visible both to the user and to Databot.
+> 1. **Analyze** – Databot makes observations and draws conclusions from the output. This might include answering the user's question, or noting any surprising results, or calling out ideas for further investigation. After this step, Databot may choose to loop if there are really obvious next steps.
+> 1. **Regroup** – Databot proposes around three to five next steps for the user to choose from. This may include continuing the current line of inquiry, going on a side quest to explain some unexpected feature of the data, or asking an entirely new question.
+> 
+> The user can then choose one of the suggested responses or type in their own question or instruction. In either case, the process repeats.
