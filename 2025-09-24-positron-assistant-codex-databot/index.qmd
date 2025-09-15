@@ -2,7 +2,9 @@
 title: "CRU meetup: Positron Assistant, Codex, and Databot"
 author: "[Stephen Turner](https://stephenturner.us)"
 date: 2025-09-24
-format: html
+format: 
+    html:
+        embed-resources: true
 ---
 
 # Positron
