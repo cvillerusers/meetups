@@ -1,0 +1,102 @@
+---
+title: "Charlottesville R Users"
+date: "September 24, 2025"
+subtitle: "Vision & Community Building"
+format: 
+  revealjs:
+    footer: "[cvillerusers.github.io](https://cvillerusers.github.io/)"
+    embed-resources: true
+---
+
+## Welcome!
+
+Tonight's agenda: 
+
+1. Social & networking
+2. Goals and community
+3. Technical topics: 
+   1. Practical R Packaging with Docker (Pete)
+   2. AI-assisted coding in Positron (Stephen)
+4. Wrap-up
+5. Social & networking
+
+---
+
+## Why We're Here
+
+- R is a powerful and growing ecosystem  
+- We need a local space to **learn, share, and support each other**  
+- Let’s shape this community together
+
+---
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+### CRU Intentions
+
+- Openness & inclusivity  
+- Collaboration & reproducibility  
+- Sharing ideas across academia, industry, and beyond
+
+**Discussion:**  
+_What values matter most for this community?_
+
+:::
+
+::: {.column width="55%"}
+
+### CRU Scope
+
+- Learning-focused (talks, workshops)  
+- Project-focused (code clinics, hack nights)  
+- Networking & social (career paths, collaborations)
+
+**Discussion:**  
+*Which of these appeals most to you?*  
+*What’s missing?*
+
+:::
+::::
+
+---
+
+:::: {.columns}
+::: {.column width="50%"}
+
+### Meeting Formats
+
+- Short talks + discussion  
+- Hands-on workshops  
+- Panels & roundtables  
+- Show-and-tell nights
+
+**Discussion:**  
+*What formats excite you?*  
+*Would you lead one?*
+
+:::
+
+::: {.column width="50%"}
+### Building Community
+
+- Frequency: bi-monthly?  
+- Location: SDS? Vault? Local company offices?
+- Communication: Discord. Google Group. Something else?
+
+**Discussion:**  
+*How can we make this sustainable?*
+
+:::
+::::
+---
+
+## Open Discussion
+
+- What do you want from this group?  
+- Topics or speakers you’d like to see?  
+- Barriers that might prevent you from joining?
+
+**Discussion:**  
+*Other ideas coming later? Write to me or post in the Discord.*
