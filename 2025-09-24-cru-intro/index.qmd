@@ -141,14 +141,12 @@ _What values matter most for this community?_
 
 ## Wrap-up
 
+**Join the [mailing list](https://groups.google.com/g/cvillerusers) for future event notifications!**
+
 - Next meeting: **TBD** (mid-November / early December?)
 - Location: **TBD** (Your company/org? SDS?)
 - Format: **TBD** (Email me! Discuss in [Discord](https://discord.gg/MZ49Zar4gA)!)
 - Topic: **TBD** (Email me! Discuss in [Discord](https://discord.gg/MZ49Zar4gA)!)  
 <small>Creating your own R-universe, duckdb, Typst, OOP with S7, MCP/mcptools, R/Exams, Tidyplots, Positron potpourri, Python in Positron 😱, data science for fun and profit with ellmer, RAG with ragnar, book club, time series modeling and forecasting, Shiny tips and tricks, how you're using R at your organization / in your classroom / in your research / etc., Quarto for blogs, websites, books, etc...</small>
 
-**Join the [mailing list](https://groups.google.com/g/cvillerusers) for future event notifications!**
-
-<br>
-
-_See also: Charlottesville Data Science Meetup, Oct 6 here at SDS: **Vibe Coding: Is It Right For Data Science?** [Register at meetup.com/charlottesvilledatascience](https://www.meetup.com/charlottesvilledatascience/events/311090078/)._
+<small><br>_See also: Charlottesville Data Science Meetup, Oct 6 here at SDS: **Vibe Coding: Is It Right For Data Science?** Register at [meetup.com/charlottesvilledatascience](https://www.meetup.com/charlottesvilledatascience/events/311090078/)._</small>
