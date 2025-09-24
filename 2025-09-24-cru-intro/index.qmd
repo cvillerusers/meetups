@@ -1,14 +1,35 @@
 ---
-title: "Charlottesville R Users"
-date: "September 24, 2025"
-subtitle: |
-  | Vision & Community Building
-  | _Talks start at ~6:15_
+# title: "Charlottesville R Users"
+# date: "September 24, 2025"
+# subtitle: |
+#   | *Vision & Community Building*
+#   | 
+#   | Talks start at ~6:15 
+#   | Meet your fellow R users until then!
+#   | 
 format: 
   revealjs:
     footer: "[cvillerusers.github.io](https://cvillerusers.github.io/)"
     embed-resources: true
 ---
+
+# Charlottesville R Users {style="text-align: center;"}
+
+*Vision & Community Building*
+<br><br>
+Talks start at ~6:15  
+Meet your fellow R users until then!
+
+```{r}
+countdown::countdown(
+  minutes = 20,
+  warn_when = 120,
+  left = "30%",
+  right = "30%",
+  top = "100%"
+)
+```
+
 
 ## Welcome!
 
@@ -26,9 +47,10 @@ Tonight's agenda:
 
 ## Why We're Here
 
-- R is a powerful and growing ecosystem  
+- R is a powerful and growing ecosystem 
+- 2025 is a great time to start or keep using R 
 - We need a local space to **learn, share, and support each other**  
-- Let’s shape this community together
+- Let's shape this community together
 
 ---
 
@@ -107,11 +129,13 @@ _What values matter most for this community?_
 
 ### pracpac: Practical R Packaging with Docker
 
+- VP (Pete) Nagraj
 - Paper: [arXiv:2303.07876](https://arxiv.org/abs/2303.07876)
 - Code: [https://github.com/signaturescience/pracpac](https://github.com/signaturescience/pracpac)
 
 ### Positron Assistant, Codex, Databot
 
+- Stephen Turner
 - Code: [github.com/cvillerusers/meetups](https://github.com/cvillerusers/meetups)
 - Rendered: [cvillerusers.github.io/meetups/2025-09-24-positron-assistant-codex-databot/](https://cvillerusers.github.io/meetups/2025-09-24-positron-assistant-codex-databot/)
 
@@ -119,11 +143,12 @@ _What values matter most for this community?_
 
 - Next meeting: **TBD** (mid-November / early December?)
 - Location: **TBD** (Your company/org? SDS?)
-- Topic: **TBD** (Email me! Discuss in [Discord](https://discord.gg/MZ49Zar4gA)!)
 - Format: **TBD** (Email me! Discuss in [Discord](https://discord.gg/MZ49Zar4gA)!)
+- Topic: **TBD** (Email me! Discuss in [Discord](https://discord.gg/MZ49Zar4gA)!)  
+<small>Creating your own R-universe, duckdb, Typst, OOP with S7, MCP/mcptools, R/Exams, Tidyplots, Positron potpourri, Python in Positron 😱, data science for fun and profit with ellmer, RAG with ragnar, book club, time series modeling and forecasting, Shiny tips and tricks, how you're using R at your organization / in your classroom / in your research / etc., Quarto for blogs, websites, books, etc...</small>
 
 **Join the [mailing list](https://groups.google.com/g/cvillerusers) for future event notifications!**
 
-<br> 
+<br>
 
-_See also: Charlottesville Data Science Meetup, Oct 6 here at SDS: **Vibe Coding: Is It Right For Data Science?** [Register on meetup.com](https://www.meetup.com/charlottesvilledatascience/events/311090078/)._
+_See also: Charlottesville Data Science Meetup, Oct 6 here at SDS: **Vibe Coding: Is It Right For Data Science?** [Register at meetup.com/charlottesvilledatascience](https://www.meetup.com/charlottesvilledatascience/events/311090078/)._
