@@ -1,7 +1,9 @@
 ---
 title: "Charlottesville R Users"
 date: "September 24, 2025"
-subtitle: "Vision & Community Building"
+subtitle: |
+  | Vision & Community Building
+  | _Talks start at ~6:15_
 format: 
   revealjs:
     footer: "[cvillerusers.github.io](https://cvillerusers.github.io/)"
@@ -100,3 +102,20 @@ _What values matter most for this community?_
 
 **Discussion:**  
 *Other ideas coming later? Write to me or post in the Discord.*
+
+## Demos
+
+Code: [github.com/cvillerusers/meetups](https://github.com/cvillerusers/meetups)
+
+## Wrap-up
+
+- Next meeting: **TBD** (mid-November / early December?)
+- Location: **TBD** (Your company/org? SDS?)
+- Topic: **TBD** (Email me! Discuss in [Discord](https://discord.gg/MZ49Zar4gA)!)
+- Format: **TBD** (Email me! Discuss in [Discord](https://discord.gg/MZ49Zar4gA)!)
+
+**Join the [mailing list](https://groups.google.com/g/cvillerusers) for future event notifications!**
+
+<br> 
+
+_See also: Charlottesville Data Science Meetup, Oct 6 here at SDS: **Vibe Coding: Is It Right For Data Science?** [Register on meetup.com](https://www.meetup.com/charlottesvilledatascience/events/311090078/)._
