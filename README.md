@@ -9,6 +9,7 @@ For more information, see <https://cvillerusers.github.io/> for the CRU event ca
 - CRU intro: Vision & Community building 
   - [Slides](https://cvillerusers.github.io/meetups/2025-09-24-cru-intro)
 - VP Nagraj: Practical R Packaging with Docker
+  - [Slides](https://cvillerusers.github.io/meetups/2025-09-24-pracpac)
 - Stephen Turner: Positron Assistant, Codex, and Databot demo
     - [Code and data](2025-09-24-positron-assistant-codex-databot)
     - [Rendered output](https://cvillerusers.github.io/meetups/2025-09-24-positron-assistant-codex-databot)
