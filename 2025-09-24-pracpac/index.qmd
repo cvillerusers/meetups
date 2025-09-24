@@ -1,0 +1,265 @@
+---
+title: "`pracpac`"
+subtitle: "Practical R Packaging with Docker"
+author: "VP Nagraj<br><br>Charlottesville R Users (CRU) Meetup"
+date: "2025-09-24"
+format:
+  revealjs:
+    # logo: images/sigsci-logo.png
+    footer: "[https://signaturescience.github.io/pracpac](https://signaturescience.github.io/pracpac)"
+    code-line-numbers: false
+    embed-resources: true
+editor: visual
+execute:
+  eval: false
+  echo: true
+---
+
+## `pracpac` ? {background-color="black" background-image="images/how-to-say-pracpac.png" background-size="1000px"}
+
+::: aside
+
+⚠️ Made with ChatGPT. Just for fun. Not for sale. Characters are not official or endorsed.
+
+:::
+
+## Outline
+
+-   Why
+    -   Motivation
+-   What
+    -   `pracpac`
+-   How
+    -   The process
+    -   Next
+
+## Motivation
+
+<br>
+
+The pattern ...
+
+<br> 
+
+... build a Docker image to execute a pipeline as a container
+
+<br>
+
+-   R code (in most cases distributed as a package)
+-   Domain-specific tools
+-   Some kind of execution script(s)
+
+## Motivation
+
+<https://github.com/signaturescience/k2v>
+
+```{r}
+#| code-line-numbers: "|1|3|5|7-23|25-27|29-31"
+FROM alpine:3.15
+
+ARG BCFTOOLS_VERSION="1.9"
+
+ADD src /src
+
+WORKDIR /src
+
+RUN apk update && apk add --no-cache gcc g++ make libc-dev ncurses-dev zlib-dev xz-dev bzip2-dev R
+
+RUN tar -xjf bcftools-${BCFTOOLS_VERSION}.tar.bz2 && \
+    cd bcftools-${BCFTOOLS_VERSION} && \
+    make -j4 && \
+    make install && \
+    cd /src && \
+    rm -rf bcftools-${BCFTOOLS_VERSION} bcftools-${BCFTOOLS_VERSION}.tar.bz2
+
+RUN tar -xjf htslib-${BCFTOOLS_VERSION}.tar.bz2 && \
+    cd htslib-${BCFTOOLS_VERSION} && \
+    make -j4 && \
+    make install && \
+    cd /src && \
+    rm -rf htslib-${BCFTOOLS_VERSION} htslib-${BCFTOOLS_VERSION}.tar.bz2
+
+ADD assets /assets
+ADD testdata /testdata
+ADD scripts /scripts
+
+WORKDIR /data
+
+ENTRYPOINT ["/scripts/k2v.sh"]
+```
+
+## Motivation
+
+::: columns
+::: {.column width="80%"}
+```{r}
+#| code-line-numbers: "|1-2|4-5"
+## base image
+FROM rocker/r-ver:latest
+
+## install packages
+RUN Rscript -e 'install.packages("dplyr")'
+```
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="18%"}
+![](images/dplyr-versions.png){fig-align="center"}
+:::
+:::
+
+## Motivation
+
+::: columns
+::: {.column width="80%"}
+```{r}
+#| code-line-numbers: "|1-2|4-5|7-8|10-11"
+## base image
+FROM rocker/r-ver:latest
+
+## copy the renv.lock (contains dplyr and dependencies)
+COPY renv.lock /renv.lock
+
+## install renv
+RUN Rscript -e 'install.packages("renv")'
+
+## restore packages from renv.lock
+RUN Rscript -e 'renv::restore(lockfile="/renv.lock")'
+```
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="18%"}
+![](images/renv-lock.png){fig-align="center"}
+:::
+:::
+
+## Motivation
+
+::: columns
+::: {.column width="32%"}
+![](images/usethis-logo.png){fig-align="center"}
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="32%"}
+![](images/devtools-logo.svg){fig-align="center"}
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="32%"}
+![](images/renv-logo.svg){fig-align="center"}
+:::
+:::
+
+## `pracpac`
+
+![](images/logo-large.png){fig-align="center"}
+
+## `pracpac`
+
+![](images/pracpac-workflow.png){fig-align="center"}
+
+## `pracpac`
+
+-   `use_docker()`
+    -   `create_docker_dir()`
+    -   `build_pkg()`
+    -   `renv_deps()`
+    -   `add_dockerfile()`
+    -   `add_assets()`
+-   `build_image()`
+
+## `pracpac`
+
+![](images/pracpac.gif)
+
+## `pracpac`
+
+### Advanced usage
+
+-   Configure base image as needed
+
+```{r}
+use_docker(..., base_image = "alpine:latest")
+```
+
+-   Customize CRAN repo used to install packages via `renv`
+
+```{r}
+use_docker(..., repos = "https://packagemanager.rstudio.com/cran/__linux__/jammy/latest")
+```
+
+-   Use a different directory structure for Docker assets
+
+```{r}
+use_docker(..., img_path = "../")
+```
+
+## The process
+
+<https://github.com/signaturescience/pracpac/actions/>
+
+![](images/pracpac-actions.png){fig-align="center"}
+
+## The process
+
+![](images/tweet.png){fig-align="center"}
+
+## The process
+
+![](images/pracpac-trending.png){fig-align="center"}
+
+## The process
+
+::: columns
+::: {.column width="75%"}
+-   $ via internal R&D by Signature Science, LLC
+-   2 day (ish) hackathon
+-   Output
+    -   <https://signaturescience.github.io/pracpac/>
+    -   <https://arxiv.org/abs/2303.07876>
+    -   <https://cran.r-project.org/package=pracpac>
+    -   Submitted to posit::conf (2023 + 2024)
+:::
+
+::: {.column width="3%"}
+:::
+
+::: {.column width="22%"}
+![](images/sigsci-logo.png){fig-align="right"} ![](images/posit-conf-video.png){fig-align="right"} ![](images/posit-conf-video-2.png){fig-align="right"} ![](images/pracpac-paper-2.png){fig-align="right"}
+:::
+:::
+
+## Next
+
+### Limitations
+
+-   Not intended to necessarily write a complete Dockerfile
+-   Will not solve all Docker build issues
+-   Does not template all system libraries that may be needed
+
+## Next
+
+Use-cases to be documented in more detail
+
+-   Shiny Server
+-   RStudio Server
+-   MLOps
+-   {OTHERS?}
+
+
+
+## Next
+
+<https://github.com/signaturescience/pracpac/issues>
+
+![](images/pracpac-issue-queue-2.png){fig-align="center"}
