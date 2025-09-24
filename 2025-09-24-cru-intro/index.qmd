@@ -127,6 +127,10 @@ _What values matter most for this community?_
 
 ## Demos
 
+:::: {.columns}
+
+::: {.column width="50%"}
+
 ### pracpac: Practical R Packaging with Docker
 
 - VP (Pete) Nagraj
@@ -134,11 +138,18 @@ _What values matter most for this community?_
 - Paper: [arXiv:2303.07876](https://arxiv.org/abs/2303.07876)
 - Code: [https://github.com/signaturescience/pracpac](https://github.com/signaturescience/pracpac)
 
+:::
+
+::: {.column width="50%"}
+
 ### Positron Assistant, Codex, Databot
 
 - Stephen Turner
 - Code: [github.com/cvillerusers/meetups](https://github.com/cvillerusers/meetups)
 - Rendered: [cvillerusers.github.io/meetups/2025-09-24-positron-assistant-codex-databot/](https://cvillerusers.github.io/meetups/2025-09-24-positron-assistant-codex-databot/)
+
+:::
+::::
 
 ## Wrap-up
 
